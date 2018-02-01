@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    
+        <meta charset=utf-8 />
+        <title>Wild Tomato Species Map</title>
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.css' rel='stylesheet' />
+       
+        <style>
+            body { margin:0; padding:0; }
+            .map { position:absolute; top:0; bottom:0; width: 100%; }
+        </style>
+        
+    </head>
+    
+    <body>
+    
+    
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    
+    <div id='user' class='map'> </div>
+    
+    <script>
+        L.mapbox.accessToken = 'pk.eyJ1IjoiamVubmFoYW1saW4iLCJhIjoiY2pjMnRsNjB1MDUyMDMzbnlnd25kcXRvdyJ9.TOixwT3AoVzPD038Y--6-g';
+                    
+        var map = L.mapbox.map('user', 'mapbox.streets', {
+            scrollWheelZoom: true,
+            legendControl: {
+                position: 'topright'
+            }
+            }).setView([-15.623, -71.938], 4);
+            map.legendControl.addLegend('<h1 style"font-size=150%"><strong>Wild Tomato Range Map<br />(<i>Solanum</i> sect. <i>Lycopersicon</i>)</strong></h1><h2>By: <a href="">CJ Jewell</a><h2 style="font-size:100%">Data source: <a href="http://tgrc.ucdavis.edu/">TGRC</a><br />Updated: June 2015</h2><h2 style="font-size:100%">Click on a marker for more information</h1>');
+        
+        
+        var ShabLayer = new L.LayerGroup();
+        var SarcLayer = new L.LayerGroup();
+        var SchiLayer = new L.LayerGroup();
+        var SpenLayer = new L.LayerGroup();
+        var SpimLayer = new L.LayerGroup();
+        var SperLayer = new L.LayerGroup();
+        var SlycLayer = new L.LayerGroup();
+        var SgalLayer = new L.LayerGroup();
+        var SochLayer = new L.LayerGroup();
+        var ScheLayer = new L.LayerGroup();
+        var ScorLayer = new L.LayerGroup();
+        var SchmLayer = new L.LayerGroup();
+        var ShuaLayer = new L.LayerGroup();
+        var SneoLayer = new L.LayerGroup();
+        var SlpsLayer = new L.LayerGroup();
+        var SsitLayer = new L.LayerGroup();
+        var SjugLayer = new L.LayerGroup();
+        
+        //MARKERS
+        
+        var Shab = L.mapbox.marker.icon({
+            'marker-color': '#6666FF',
+            'marker-size': 'small'
+                        });
+        var Sarc = L.mapbox.marker.icon({
+            'marker-color': '#996600',
+            'marker-size': 'small'
+                        });
+        var Schi = L.mapbox.marker.icon({
+            'marker-color': '#00CC66',
+            'marker-size': 'small'
+                        });               
+        var Spen = L.mapbox.marker.icon({
+            'marker-color': '#0000FF',
+            'marker-size': 'small'
+                        });               
+        var Spim = L.mapbox.marker.icon({
+            'marker-color': '#990000',
+            'marker-size': 'small'
+                    });
+        var Sper = L.mapbox.marker.icon({
+            'marker-color': '#66FF33',
+            'marker-size': 'small'
+                    });
+        var Slyc = L.mapbox.marker.icon({
+            'marker-color': '#FF0000',
+            'marker-size': 'small'
+                    });        
+        var Sgal = L.mapbox.marker.icon({
+            'marker-color': '#FF9999',
+            'marker-size': 'small'
+                    });
+        var Soch = L.mapbox.marker.icon({
+            'marker-color': '#999999',
+            'marker-size': 'small'
+                    });
+        var Sche = L.mapbox.marker.icon({
+            'marker-color': '#9900FF',
+            'marker-size': 'small'
+                    });
+        var Scor = L.mapbox.marker.icon({
+            'marker-color': '#003300',
+            'marker-size': 'small'
+                    });        
+        var Schm = L.mapbox.marker.icon({
+            'marker-color': '#FFFF33',
+            'marker-size': 'small'
+                    });
+        var Shua = L.mapbox.marker.icon({
+            'marker-color': '#CC0066',
+            'marker-size': 'small'
+                    });
+        var Sneo = L.mapbox.marker.icon({
+            'marker-color': '#FF9900',
+            'marker-size': 'small'
+                    });
+        var Slps = L.mapbox.marker.icon({
+            'marker-color': '#000000',
+            'marker-size': 'small'
+                    });
+        var Ssit = L.mapbox.marker.icon({
+            'marker-color': '#4A4949',
+            'marker-size': 'small'
+                    });
+        var Sjug = L.mapbox.marker.icon({
+            'marker-color': '#EBEFF0',
+            'marker-size': 'small'
+                    });
+                                        
+        function eachLayer(marker) {
+            var ltg = marker.toGeoJSON();
+            
+            //LAYERGROUPING
+            if(ltg.properties.Solanum == 'S. habrochaites'){
+                ShabLayer.addLayer(marker);
+            }
+            
+            if( ltg.properties.Solanum == 'S. arcanum'){
+                SarcLayer.addLayer(marker);
+            }
+            
+            if( ltg.properties.Solanum == 'S. chilense'){
+                SchiLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. pennellii'){
+                SpenLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. pimpinellifolium'){
+                SpimLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. peruvianum'){
+                SperLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. lycopersicum'){
+                SlycLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. galapagense'){
+                SgalLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. ochranthum'){
+                SochLayer.addLayer(marker);
+            }  
+            if( ltg.properties.Solanum == 'S. cheesmaniae'){
+                ScheLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. corneliomulleri'){
+                ScorLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. chmielewskii'){
+                SchmLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. huaylasense'){
+                ShuaLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. neorickii'){
+                SneoLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. lycopersicoides'){
+                SlpsLayer.addLayer(marker);
+            }
+            if( ltg.properties.Solanum == 'S. sitiens'){
+                SsitLayer.addLayer(marker);
+            }   
+            if (ltg.properties.Solanum == 'S. juglandifolium'){
+                SjugLayer.addLayer(marker);
+            }
+                 
+            //END LAYERGROUPING
+            if(ltg.properties.Solanum != ''){
+                marker.setIcon(L.mapbox.marker.icon({}));
+            }
+            else {
+                marker.bindPopup('<strong>' + ltg.properties.Solanum + '</strong>' + '<br>' + 
+                ltg.properties.Accession)
+            }
+            }          
+            
+        //Import points onto map
+        var points = omnivore.csv('TGRC_all_accessions.csv')
+            .on('ready', function() {
+            
+                points.eachLayer(eachLayer);
+                
+                this.eachLayer(function(marker) {
+                    if (marker.toGeoJSON().properties.Solanum === 'S. habrochaites') {
+                        marker.setIcon(Shab);                    
+                    }
+                    
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. arcanum') {
+                        marker.setIcon(Sarc);
+                    }
+                    
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. chilense') {
+                        marker.setIcon(Schi);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. pennellii') {
+                        marker.setIcon(Spen);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. pimpinellifolium') {
+                        marker.setIcon(Spim);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. peruvianum') {
+                        marker.setIcon(Sper);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. lycopersicum') {
+                        marker.setIcon(Slyc);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. galapagense') {
+                        marker.setIcon(Sgal);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. ochranthum') {
+                        marker.setIcon(Soch);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. cheesmaniae') {
+                        marker.setIcon(Sche);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. corneliomulleri') {
+                        marker.setIcon(Scor);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. chmielewskii') {
+                        marker.setIcon(Schm);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. huaylasense') {
+                        marker.setIcon(Shua);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. neorickii') {
+                        marker.setIcon(Sneo);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. lycopersicoides') {
+                        marker.setIcon(Slps);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. sitiens') {
+                        marker.setIcon(Ssit);
+                    }
+                    else if (marker.toGeoJSON().properties.Solanum === 'S. juglandifolium') {
+                        marker.setIcon(Sjug);
+                    }
+                    else {
+                        marker.setIcon(L.mapbox.marker.icon({})); }
+         
+         //Bind popup to each icon           
+                var popupText = '<b>' + marker.toGeoJSON().properties.Solanum + '</b><br />' +
+                    marker.toGeoJSON().properties.Accession;
+                
+                marker.bindPopup(popupText);   
+                
+                });
+        
+        });
+        
+        L.control.layers({
+            'Mapbox Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map)},
+            
+            { 
+                'S. lycopersicum': SlycLayer,
+                'S. pimpinellifolium': SpimLayer,
+                'S. cheesmaniae': ScheLayer,
+                'S. galapagense': SgalLayer, 
+                'S. neorickii': SneoLayer,
+                'S. arcanum': SarcLayer,
+                'S. chmielewskii': SchmLayer,
+                'S. corneliomulleri': ScorLayer,
+                'S. peruvianum': SperLayer,
+                'S. huaylasense': ShuaLayer,
+                'S. chilense': SchiLayer,
+                'S. habrochaites': ShabLayer,
+                'S. pennellii': SpenLayer,
+                'S. lycopersicoides': SlpsLayer,
+                'S. ochranthum': SochLayer,
+                'S. juglandifolium': SjugLayer,
+                'S. sitiens': SsitLayer
+
+            
+            }, {collapsed:false}).addTo(map);
+        
+    </script>
+    
+    </body>
+
+
+</html>
