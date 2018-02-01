@@ -34,91 +34,66 @@
             map.legendControl.addLegend('<h1 style"font-size=150%"><strong>UCI Bike Calendar Map<br />(<i>2018</i>)</strong></h1><h2>By: <a href="">Jenna Hamlin</a><h2 style="font-size:100%">Data source: <a href="http://www.uci.ch/road/calendar/">UCI</a><br />Updated: January 2018</h2><h2 style="font-size:100%">Clickable by month for global distribution of races</h1>');
         
         
-        var ShabLayer = new L.LayerGroup();
-        var SarcLayer = new L.LayerGroup();
-        var SchiLayer = new L.LayerGroup();
-        var SpenLayer = new L.LayerGroup();
-        var SpimLayer = new L.LayerGroup();
-        var SperLayer = new L.LayerGroup();
-        var SlycLayer = new L.LayerGroup();
-        var SgalLayer = new L.LayerGroup();
-        var SochLayer = new L.LayerGroup();
-        var ScheLayer = new L.LayerGroup();
-        var ScorLayer = new L.LayerGroup();
-        var SchmLayer = new L.LayerGroup();
-        var ShuaLayer = new L.LayerGroup();
-        var SneoLayer = new L.LayerGroup();
-        var SlpsLayer = new L.LayerGroup();
-        var SsitLayer = new L.LayerGroup();
-        var SjugLayer = new L.LayerGroup();
+        var JanLayer = new L.LayerGroup();
+        var FebLayer = new L.LayerGroup();
+        var MarLayer = new L.LayerGroup();
+        var AprLayer = new L.LayerGroup();
+        var MayLayer = new L.LayerGroup();
+        var JunLayer = new L.LayerGroup();
+        var JulLayer = new L.LayerGroup();
+        var AugLayer = new L.LayerGroup();
+        var SepLayer = new L.LayerGroup();
+        var OctLayer = new L.LayerGroup();
+        var NovLayer = new L.LayerGroup();
+        var DecLayer = new L.LayerGroup();
         
         //MARKERS
         
-        var Shab = L.mapbox.marker.icon({
+        var Jan = L.mapbox.marker.icon({
             'marker-color': '#6666FF',
             'marker-size': 'small'
                         });
-        var Sarc = L.mapbox.marker.icon({
+        var Feb = L.mapbox.marker.icon({
             'marker-color': '#996600',
             'marker-size': 'small'
                         });
-        var Schi = L.mapbox.marker.icon({
+        var Mar = L.mapbox.marker.icon({
             'marker-color': '#00CC66',
             'marker-size': 'small'
                         });               
-        var Spen = L.mapbox.marker.icon({
+        var Apr = L.mapbox.marker.icon({
             'marker-color': '#0000FF',
             'marker-size': 'small'
                         });               
-        var Spim = L.mapbox.marker.icon({
+        var May = L.mapbox.marker.icon({
             'marker-color': '#990000',
             'marker-size': 'small'
                     });
-        var Sper = L.mapbox.marker.icon({
+        var Jun = L.mapbox.marker.icon({
             'marker-color': '#66FF33',
             'marker-size': 'small'
                     });
-        var Slyc = L.mapbox.marker.icon({
+        var Jul = L.mapbox.marker.icon({
             'marker-color': '#FF0000',
             'marker-size': 'small'
                     });        
-        var Sgal = L.mapbox.marker.icon({
+        var Aug = L.mapbox.marker.icon({
             'marker-color': '#FF9999',
             'marker-size': 'small'
                     });
-        var Soch = L.mapbox.marker.icon({
+        var Sep = L.mapbox.marker.icon({
             'marker-color': '#999999',
             'marker-size': 'small'
                     });
-        var Sche = L.mapbox.marker.icon({
+        var Oct = L.mapbox.marker.icon({
             'marker-color': '#9900FF',
             'marker-size': 'small'
                     });
-        var Scor = L.mapbox.marker.icon({
+        var Nov = L.mapbox.marker.icon({
             'marker-color': '#003300',
             'marker-size': 'small'
                     });        
-        var Schm = L.mapbox.marker.icon({
-            'marker-color': '#FFFF33',
-            'marker-size': 'small'
-                    });
-        var Shua = L.mapbox.marker.icon({
-            'marker-color': '#CC0066',
-            'marker-size': 'small'
-                    });
-        var Sneo = L.mapbox.marker.icon({
-            'marker-color': '#FF9900',
-            'marker-size': 'small'
-                    });
-        var Slps = L.mapbox.marker.icon({
-            'marker-color': '#000000',
-            'marker-size': 'small'
-                    });
-        var Ssit = L.mapbox.marker.icon({
-            'marker-color': '#4A4949',
-            'marker-size': 'small'
-                    });
-        var Sjug = L.mapbox.marker.icon({
+        var Dec = L.mapbox.marker.icon({
             'marker-color': '#EBEFF0',
             'marker-size': 'small'
                     });
@@ -127,136 +102,106 @@
             var ltg = marker.toGeoJSON();
             
             //LAYERGROUPING
-            if(ltg.properties.Solanum == 'S. habrochaites'){
-                ShabLayer.addLayer(marker);
+            if(ltg.properties.Solanum == 'January'){
+                JanLayer.addLayer(marker);
             }
             
-            if( ltg.properties.Solanum == 'S. arcanum'){
-                SarcLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'February'){
+                FebLayer.addLayer(marker);
             }
             
-            if( ltg.properties.Solanum == 'S. chilense'){
-                SchiLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'March'){
+                MarLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. pennellii'){
-                SpenLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'April'){
+                AprLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. pimpinellifolium'){
-                SpimLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'May'){
+                MayLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. peruvianum'){
-                SperLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'June'){
+                JunLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. lycopersicum'){
-                SlycLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'July'){
+                JulLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. galapagense'){
-                SgalLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'August'){
+                AugLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. ochranthum'){
-                SochLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'September'){
+                SepLayer.addLayer(marker);
             }  
-            if( ltg.properties.Solanum == 'S. cheesmaniae'){
-                ScheLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'October'){
+                OctLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. corneliomulleri'){
-                ScorLayer.addLayer(marker);
+            if( ltg.properties.Solanum == 'November'){
+                NovLayer.addLayer(marker);
             }
-            if( ltg.properties.Solanum == 'S. chmielewskii'){
-                SchmLayer.addLayer(marker);
-            }
-            if( ltg.properties.Solanum == 'S. huaylasense'){
-                ShuaLayer.addLayer(marker);
-            }
-            if( ltg.properties.Solanum == 'S. neorickii'){
-                SneoLayer.addLayer(marker);
-            }
-            if( ltg.properties.Solanum == 'S. lycopersicoides'){
-                SlpsLayer.addLayer(marker);
-            }
-            if( ltg.properties.Solanum == 'S. sitiens'){
-                SsitLayer.addLayer(marker);
-            }   
-            if (ltg.properties.Solanum == 'S. juglandifolium'){
-                SjugLayer.addLayer(marker);
+            if (ltg.properties.Solanum == 'December'){
+                DecLayer.addLayer(marker);
             }
                  
             //END LAYERGROUPING
-            if(ltg.properties.Solanum != ''){
+            if(ltg.properties.Month != ''){
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
             else {
-                marker.bindPopup('<strong>' + ltg.properties.Solanum + '</strong>' + '<br>' + 
-                ltg.properties.Accession)
+                marker.bindPopup('<strong>' + ltg.properties.Month + '</strong>' + '<br>' + 
+                ltg.properties.Race)
             }
             }          
             
         //Import points onto map
-        var points = omnivore.csv('TGRC_all_accessions.csv')
+        var points = omnivore.csv('UCI.race.data.csv')
             .on('ready', function() {
             
                 points.eachLayer(eachLayer);
                 
                 this.eachLayer(function(marker) {
-                    if (marker.toGeoJSON().properties.Solanum === 'S. habrochaites') {
-                        marker.setIcon(Shab);                    
+                    if (marker.toGeoJSON().properties.Month === 'January') {
+                        marker.setIcon(Jan);                    
                     }
                     
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. arcanum') {
-                        marker.setIcon(Sarc);
+                    else if (marker.toGeoJSON().properties.Month === 'February') {
+                        marker.setIcon(Feb);
                     }
                     
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. chilense') {
-                        marker.setIcon(Schi);
+                    else if (marker.toGeoJSON().properties.Month === 'March') {
+                        marker.setIcon(Mar);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. pennellii') {
-                        marker.setIcon(Spen);
+                    else if (marker.toGeoJSON().properties.Month === 'April') {
+                        marker.setIcon(Apr);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. pimpinellifolium') {
-                        marker.setIcon(Spim);
+                    else if (marker.toGeoJSON().properties.Month === 'May') {
+                        marker.setIcon(May);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. peruvianum') {
-                        marker.setIcon(Sper);
+                    else if (marker.toGeoJSON().properties.Month === 'June') {
+                        marker.setIcon(Jun);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. lycopersicum') {
-                        marker.setIcon(Slyc);
+                    else if (marker.toGeoJSON().properties.Month === 'July') {
+                        marker.setIcon(Jul);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. galapagense') {
-                        marker.setIcon(Sgal);
+                    else if (marker.toGeoJSON().properties.Month === 'August') {
+                        marker.setIcon(Aug);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. ochranthum') {
-                        marker.setIcon(Soch);
+                    else if (marker.toGeoJSON().properties.Month === 'September') {
+                        marker.setIcon(Sep);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. cheesmaniae') {
-                        marker.setIcon(Sche);
+                    else if (marker.toGeoJSON().properties.Month === 'October') {
+                        marker.setIcon(Oct);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. corneliomulleri') {
-                        marker.setIcon(Scor);
+                    else if (marker.toGeoJSON().properties.Month === 'November') {
+                        marker.setIcon(Nov);
                     }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. chmielewskii') {
-                        marker.setIcon(Schm);
-                    }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. huaylasense') {
-                        marker.setIcon(Shua);
-                    }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. neorickii') {
-                        marker.setIcon(Sneo);
-                    }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. lycopersicoides') {
-                        marker.setIcon(Slps);
-                    }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. sitiens') {
-                        marker.setIcon(Ssit);
-                    }
-                    else if (marker.toGeoJSON().properties.Solanum === 'S. juglandifolium') {
-                        marker.setIcon(Sjug);
+                    else if (marker.toGeoJSON().properties.Month === 'December') {
+                        marker.setIcon(Dec);
                     }
                     else {
                         marker.setIcon(L.mapbox.marker.icon({})); }
          
          //Bind popup to each icon           
-                var popupText = '<b>' + marker.toGeoJSON().properties.Solanum + '</b><br />' +
-                    marker.toGeoJSON().properties.Accession;
+                var popupText = '<b>' + marker.toGeoJSON().properties.Month + '</b><br />' +
+                    marker.toGeoJSON().properties.Race;
                 
                 marker.bindPopup(popupText);   
                 
@@ -268,23 +213,18 @@
             'Mapbox Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map)},
             
             { 
-                'S. lycopersicum': SlycLayer,
-                'S. pimpinellifolium': SpimLayer,
-                'S. cheesmaniae': ScheLayer,
-                'S. galapagense': SgalLayer, 
-                'S. neorickii': SneoLayer,
-                'S. arcanum': SarcLayer,
-                'S. chmielewskii': SchmLayer,
-                'S. corneliomulleri': ScorLayer,
-                'S. peruvianum': SperLayer,
-                'S. huaylasense': ShuaLayer,
-                'S. chilense': SchiLayer,
-                'S. habrochaites': ShabLayer,
-                'S. pennellii': SpenLayer,
-                'S. lycopersicoides': SlpsLayer,
-                'S. ochranthum': SochLayer,
-                'S. juglandifolium': SjugLayer,
-                'S. sitiens': SsitLayer
+                'January': JanLayer,
+                'February': FebLayer,
+                'March': MarLayer,
+                'April': AprLayer, 
+                'May': MayLayer,
+                'June': JunLayer,
+                'July': JulLayer,
+                'August': AugLayer,
+                'September': SepLayer,
+                'October': OctLayer,
+                'November': NovLayer,
+                'December': DecLayer
 
             
             }, {collapsed:false}).addTo(map);
